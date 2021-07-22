@@ -21,13 +21,14 @@ def insha(string):
 
 
 def get_hash_prefixed_zeros(zeros):
-	prefix = '0' * zeros
-	word = get_word()
-	wordy = insha(word)	
-	while not wordy.startswith(prefix):
+	while True:	
+		prefix = '0' * zeros
 		word = get_word()
-		wordy = insha(word)		
-	print(word)
+		wordy = insha(word)	
+		while not wordy.startswith(prefix):
+			word = get_word()
+			wordy = insha(word)		
+		print(word)
 
 prefix = int(input("how many zeros do you need? : "))
 get_hash_prefixed_zeros(prefix)
